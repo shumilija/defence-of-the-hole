@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GameBoardCenter
   - GameBoard
+  - Missile
+  - Enemy
   layers:
   - Default
   - TransparentFX
