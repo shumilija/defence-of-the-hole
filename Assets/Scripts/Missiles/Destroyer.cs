@@ -7,12 +7,12 @@ namespace DefenceOfTheHole.Bullets
     /// </summary>
     public class Destroyer : MonoBehaviour
     {
-        private void OnTriggerEnter2D(Collider2D other)
+        /// <summary>
+        /// Уничтожить снаряд.
+        /// </summary>
+        public void Destroy()
         {
-            if (other.gameObject.CompareTag("GameBoardCenter"))
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }
