@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace DefenceOfTheHole.Common
 {
@@ -12,6 +13,9 @@ namespace DefenceOfTheHole.Common
 
         [SerializeField]
         private GameObject _prefab;
+
+        [SerializeField]
+        private UnityEvent _instantiated;
         
         private float _timeFromLastInstantiation;
 
@@ -24,6 +28,8 @@ namespace DefenceOfTheHole.Common
                 _timeFromLastInstantiation = 0;
 
                 Instantiate(_prefab, transform.position, transform.rotation);
+
+                _instantiated?.Invoke();
             }
             else
             {
