@@ -8,14 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 987551192468924468, guid: e84568bc60956464e83e417c552504b0, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 987551192468924468, guid: e84568bc60956464e83e417c552504b0, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1815727291027913658, guid: e84568bc60956464e83e417c552504b0, type: 3}
       propertyPath: m_Name
       value: Teleportating Enemy
