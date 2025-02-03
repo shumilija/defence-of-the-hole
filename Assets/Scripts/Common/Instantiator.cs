@@ -19,6 +19,12 @@ namespace DefenceOfTheHole.Common
         
         private float _timeFromLastInstantiation;
 
+        public float InstancePerSecond
+        {
+            get => _instancePerSecond;
+            set => _instancePerSecond = value;
+        }
+
         private float DelayBetweenInstantiations => 1 / _instancePerSecond;
 
         private void Update()

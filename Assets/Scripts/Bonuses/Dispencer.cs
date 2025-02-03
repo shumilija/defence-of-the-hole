@@ -14,12 +14,16 @@ namespace DefenceOfTheHole.Bonuses
         [SerializeField]
         private UnityEvent _disactivated;
 
+        private IBonus[] _bonuses;
+        private IBonus _activatedBonus;
+
         /// <summary>
         /// Выдать бонус игроку.
         /// </summary>
         public void Activate()
         {
-            Debug.Log("Бонус активирован!");
+            _activatedBonus = _bonuses[Random.Range(0, _bonuses.Length)];
+            _activatedBonus.Activate();
 
             _activated?.Invoke();
         }
@@ -29,9 +33,15 @@ namespace DefenceOfTheHole.Bonuses
         /// </summary>
         public void Disactivate()
         {
-            Debug.Log("Бонус дезактивирован!");
+            _activatedBonus.Disactivate();
+            _activatedBonus = null;
 
             _disactivated?.Invoke();
+        }
+
+        private void Start()
+        {
+            _bonuses = GetComponentsInChildren<IBonus>();
         }
     }
 }
