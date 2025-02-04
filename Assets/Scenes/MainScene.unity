@@ -225,7 +225,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 540
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -341,7 +341,6 @@ GameObject:
   - component: {fileID: 972431949}
   - component: {fileID: 972431951}
   - component: {fileID: 972431954}
-  - component: {fileID: 972431952}
   - component: {fileID: 972431953}
   - component: {fileID: 972431955}
   m_Layer: 0
@@ -360,8 +359,8 @@ Transform:
   m_GameObject: {fileID: 972431948}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.60000014, y: 0.60000014, z: 0.6}
+  m_LocalPosition: {x: 432, y: 0, z: 0}
+  m_LocalScale: {x: 64, y: 64, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1359488070}
@@ -421,18 +420,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &972431952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972431948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8170b9cea7f0834abe6e30daefa4903, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &972431953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,7 +571,7 @@ GameObject:
   - component: {fileID: 1143731026}
   - component: {fileID: 1143731027}
   m_Layer: 0
-  m_Name: Center
+  m_Name: Game Board Center
   m_TagString: GameBoardCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -598,12 +585,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143731025}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 43.2, y: 43.2, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1457958822}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1143731027
 CircleCollider2D:
@@ -696,57 +683,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1457958822}
   - component: {fileID: 1457958821}
-  - component: {fileID: 1457958820}
   - component: {fileID: 1457958823}
   m_Layer: 0
-  m_Name: Game Board
+  m_Name: Game Board Edge
   m_TagString: GameBoard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1457958820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457958819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 236e3f0e9f45a5c489a64124486dd29f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fractionOfScreenSize: 0.8
-  _resized:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 972431952}
-        m_TargetAssemblyTypeName: DefenceOfTheHole.PlayerShip.DistanceCorrection,
-          Assembly-CSharp
-        m_MethodName: CorrectByGameBoardSize
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1515012192}
-        m_TargetAssemblyTypeName: DefenceOfTheHole.PlayerShip.DistanceCorrection,
-          Assembly-CSharp
-        m_MethodName: CorrectByGameBoardSize
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!212 &1457958821
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -812,10 +756,9 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 864, y: 864, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1143731026}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1457958823
@@ -909,7 +852,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1515012184}
-  - component: {fileID: 1515012192}
   - component: {fileID: 1515012191}
   - component: {fileID: 1515012190}
   - component: {fileID: 1515012193}
@@ -1165,18 +1107,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &1515012192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515012183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8170b9cea7f0834abe6e30daefa4903, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1515012193
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1237,6 +1167,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1143731026}
   - {fileID: 1457958822}
   - {fileID: 1359488070}
   - {fileID: 791497838}
