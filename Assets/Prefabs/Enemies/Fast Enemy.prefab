@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: _speed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 987551192468924468, guid: e84568bc60956464e83e417c552504b0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1399673424, guid: db9e560f3e6614f46ac1a7408482267d, type: 3}
     - target: {fileID: 1815727291027913658, guid: e84568bc60956464e83e417c552504b0, type: 3}
       propertyPath: m_Name
       value: Fast Enemy
