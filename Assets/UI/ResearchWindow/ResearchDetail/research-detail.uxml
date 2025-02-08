@@ -1,0 +1,19 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False" class="research-detail">
+    <Style src="project://database/Assets/UI/ResearchWindow/ResearchDetail/styles.uss?fileID=7433441132597879392&amp;guid=e588bc12d73826c43949be25067b2c39&amp;type=3#styles" />
+    <engine:VisualElement name="ImageBox" class="image-box">
+            <engine:VisualElement name="Image" class="image" style="background-image: url(&quot;project://database/Assets/Sprites/UI/extra-ship-preview.png?fileID=2800000&amp;guid=571018fda802dff44a316e51220ae44a&amp;type=3#extra-ship-preview&quot;);" />
+        </engine:VisualElement>
+        <engine:VisualElement name="Spacing" class="spacing" />
+        <engine:VisualElement name="LevelBox" class="level-box">
+            <engine:VisualElement name="EnabledItem" class="item enabled-item" />
+            <engine:VisualElement name="Spacing" class="spacing" />
+            <engine:VisualElement name="DisabledItem" class="item disabled-item" />
+            <engine:VisualElement name="Spacing" class="spacing" />
+            <engine:VisualElement name="DisabledItem" class="item disabled-item" />
+        </engine:VisualElement>
+        <engine:VisualElement name="Spacing" class="spacing" />
+        <engine:Label text="+1 Корабль" name="Title" class="title" />
+        <engine:Label text="Под управление игрока передается дополнительный корабль. Дополнительный корабль размещается в 180 градусах относительно основного корабля." name="Text" class="text" />
+        <engine:VisualElement name="Spacing" class="spacing" />
+        <engine:Button text="Купить" name="Button" class="button enabled-button" />
+</engine:UXML>

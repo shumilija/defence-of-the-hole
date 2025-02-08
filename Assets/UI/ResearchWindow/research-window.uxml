@@ -1,0 +1,56 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="markup" src="project://database/Assets/UI/ResearchWindow/ResearchDetail/research-detail.uxml?fileID=9197481963319205126&amp;guid=42e3f30c5686fc94fbc3cfdbe8785bb8&amp;type=3#research-detail" />
+    <ui:Template name="research-tree" src="project://database/Assets/UI/ResearchWindow/ResearchTree/research-tree.uxml?fileID=9197481963319205126&amp;guid=344864016308a0a4dad1af019871b785&amp;type=3#research-tree" />
+    <ui:Template name="research-tree-branch" src="project://database/Assets/UI/ResearchWindow/ResearchTree/research-tree-branch.uxml?fileID=9197481963319205126&amp;guid=807253028c7ed3b47b7cfa65dd63699d&amp;type=3#research-tree-branch" />
+    <ui:Template name="research-tree-line" src="project://database/Assets/UI/ResearchWindow/ResearchTree/research-tree-line.uxml?fileID=9197481963319205126&amp;guid=39758d4f4af50844db500b533650fb09&amp;type=3#research-tree-line" />
+    <ui:Template name="research-tree-item" src="project://database/Assets/UI/ResearchWindow/ResearchTree/research-tree-item.uxml?fileID=9197481963319205126&amp;guid=420eaa7420edbbf478f121317e40b0c3&amp;type=3#research-tree-item" />
+    <ui:Template name="research-tree-line-gap" src="project://database/Assets/UI/ResearchWindow/ResearchTree/research-tree-line-gap.uxml?fileID=9197481963319205126&amp;guid=1c5c20ae83d561b4bac288f4170a151f&amp;type=3#research-tree-line-gap" />
+    <ui:Template name="research-tree-branch-gap" src="project://database/Assets/UI/ResearchWindow/ResearchTree/research-tree-branch-gap.uxml?fileID=9197481963319205126&amp;guid=271e6d0b8c8fc3d44b9446e944025811&amp;type=3#research-tree-branch-gap" />
+    <ui:VisualElement name="Window" style="flex-grow: 0; width: 80%; height: 80%; background-color: rgb(135, 0, 76); margin-top: auto; margin-right: auto; margin-bottom: auto; margin-left: auto; flex-direction: column; border-top-left-radius: 60px; border-top-right-radius: 60px; border-bottom-right-radius: 60px; border-bottom-left-radius: 60px;">
+        <ui:VisualElement name="Content" class="window-content" style="flex-grow: 1; flex-direction: row; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+            <ui:Instance template="markup" name="ResearchDetail" style="flex-basis: 35%;" />
+            <ui:VisualElement name="Gap" style="width: 10px; height: 100%;" />
+            <ui:ScrollView name="ResearchTree" class="research-tree" style="flex-grow: 1; background-color: rgb(84, 0, 47); border-top-left-radius: 15px; border-top-right-radius: 60px; border-bottom-right-radius: 60px; border-bottom-left-radius: 15px; overflow: hidden;">
+                <ui:Instance template="research-tree" name="Tree">
+                    <ui:Instance template="research-tree-branch" name="Branch" style="width: 1440px;">
+                        <ui:Instance template="research-tree-line" name="Line">
+                            <ui:Instance template="research-tree-item" name="Item" />
+                            <ui:Instance template="research-tree-line-gap" name="Gap" />
+                            <ui:Instance template="research-tree-item" name="Item" />
+                            <ui:Instance template="research-tree-line-gap" name="Gap" />
+                            <ui:Instance template="research-tree-item" name="Item" />
+                        </ui:Instance>
+                        <ui:Instance template="research-tree-branch-gap" name="Gap" />
+                        <ui:Instance template="research-tree-line" name="Line">
+                            <ui:Instance template="research-tree-item" name="Item" />
+                            <ui:Instance template="research-tree-line-gap" name="Gap" />
+                            <ui:Instance template="research-tree-branch" name="Branch" style="width: 1440px;">
+                                <ui:Instance template="research-tree-line" name="Line">
+                                    <ui:Instance template="research-tree-item" name="Item" />
+                                </ui:Instance>
+                                <ui:Instance template="research-tree-branch-gap" name="Gap" />
+                                <ui:Instance template="research-tree-line" name="Line">
+                                    <ui:Instance template="research-tree-item" name="Item" />
+                                </ui:Instance>
+                            </ui:Instance>
+                        </ui:Instance>
+                        <ui:Instance template="research-tree-branch-gap" name="Gap" />
+                        <ui:Instance template="research-tree-line" name="Line">
+                            <ui:Instance template="research-tree-item" name="Item" />
+                            <ui:Instance template="research-tree-line-gap" name="Gap" />
+                            <ui:Instance template="research-tree-branch" name="Branch" style="width: 1440px;">
+                                <ui:Instance template="research-tree-line" name="Line">
+                                    <ui:Instance template="research-tree-item" name="Item" />
+                                </ui:Instance>
+                                <ui:Instance template="research-tree-branch-gap" name="Gap" />
+                                <ui:Instance template="research-tree-line" name="Line">
+                                    <ui:Instance template="research-tree-item" name="Item" />
+                                </ui:Instance>
+                            </ui:Instance>
+                        </ui:Instance>
+                    </ui:Instance>
+                </ui:Instance>
+            </ui:ScrollView>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,13 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False" class="item">
+    <Style src="project://database/Assets/UI/ResearchWindow/ResearchTree/styles.uss?fileID=7433441132597879392&amp;guid=5e697dfc9281fcd4a94fd081ba210287&amp;type=3#styles" />
+    <engine:VisualElement name="ImageBox" class="image-box" />
+    <engine:VisualElement name="Spacing" class="gap" />
+    <engine:VisualElement name="InfoBox" class="info-box">
+        <engine:Label text="+1 Корабль" name="Title" class="title" />
+        <engine:VisualElement name="LevelBox" class="level-box">
+            <engine:VisualElement name="EnabledItem" enabled="true" class="enabled-item item" />
+            <engine:VisualElement name="DisabledItem" class="disabled-item item" />
+            <engine:VisualElement name="DisabledItem" class="disabled-item item" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
