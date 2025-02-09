@@ -6,6 +6,7 @@
     <ui:Template name="research-tree-item" src="project://database/Assets/UI/ResearchWindow/ResearchTree/research-tree-item.uxml?fileID=9197481963319205126&amp;guid=420eaa7420edbbf478f121317e40b0c3&amp;type=3#research-tree-item" />
     <ui:Template name="research-tree-line-gap" src="project://database/Assets/UI/ResearchWindow/ResearchTree/research-tree-line-gap.uxml?fileID=9197481963319205126&amp;guid=1c5c20ae83d561b4bac288f4170a151f&amp;type=3#research-tree-line-gap" />
     <ui:Template name="research-tree-branch-gap" src="project://database/Assets/UI/ResearchWindow/ResearchTree/research-tree-branch-gap.uxml?fileID=9197481963319205126&amp;guid=271e6d0b8c8fc3d44b9446e944025811&amp;type=3#research-tree-branch-gap" />
+    <Style src="project://database/Assets/UI/ResearchWindow/styles.uss?fileID=7433441132597879392&amp;guid=0a68d515488e1254f9b9ce50b7f270e8&amp;type=3#styles" />
     <ui:VisualElement name="Window" style="flex-grow: 0; width: 80%; height: 80%; background-color: rgb(135, 0, 76); margin-top: auto; margin-right: auto; margin-bottom: auto; margin-left: auto; flex-direction: column; border-top-left-radius: 60px; border-top-right-radius: 60px; border-bottom-right-radius: 60px; border-bottom-left-radius: 60px;">
         <ui:VisualElement name="Content" class="window-content" style="flex-grow: 1; flex-direction: row; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
             <ui:Instance template="markup" name="ResearchDetail" style="flex-basis: 35%;" />
@@ -52,5 +53,6 @@
                 </ui:Instance>
             </ui:ScrollView>
         </ui:VisualElement>
+        <ui:Button text="✖" name="CloseButton" style="position: absolute; right: -10px; top: -10px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; background-color: rgb(255, 212, 42); border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; border-left-color: rgb(255, 193, 0); border-right-color: rgb(255, 193, 0); border-top-color: rgb(255, 193, 0); border-bottom-color: rgb(255, 193, 0); width: 50px; height: 50px; border-top-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; border-bottom-left-radius: 50%; -unity-font-definition: url(&quot;project://database/Assets/Fonts/FliegeMono-Regular.otf?fileID=12800000&amp;guid=cb97a6c75a5100e43bfb40576fbec05b&amp;type=3#FliegeMono-Regular&quot;); font-size: 40px; -unity-font-style: normal;" />
     </ui:VisualElement>
 </ui:UXML>
