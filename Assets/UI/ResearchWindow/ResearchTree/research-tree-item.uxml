@@ -4,10 +4,6 @@
     <engine:VisualElement name="Spacing" class="gap" />
     <engine:VisualElement name="InfoBox" class="info-box">
         <engine:Label text="+1 Корабль" name="Title" class="title" />
-        <engine:VisualElement name="LevelBox" class="level-box">
-            <engine:VisualElement name="EnabledItem" enabled="true" class="enabled-item item" />
-            <engine:VisualElement name="DisabledItem" class="disabled-item item" />
-            <engine:VisualElement name="DisabledItem" class="disabled-item item" />
-        </engine:VisualElement>
+        <DefenceOfTheHole.UI.LevelBox current-level="1" size-of-icons-in-pixels="40" style="justify-content: flex-end;" />
     </engine:VisualElement>
 </engine:UXML>
