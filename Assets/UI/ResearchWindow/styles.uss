@@ -21,3 +21,60 @@
     border-bottom-right-radius: 9px;
     border-bottom-left-radius: 9px;
 }
+
+.research-detail:enabled {
+    left: 0;
+    flex-basis: 35%;
+    transition-duration: 1s;
+    transition-timing-function: ease-out-cubic;
+    margin-right: 10px;
+}
+
+.research-detail:disabled {
+    left: -550px;
+    flex-basis: 0;
+    margin-right: 0;
+    transition-timing-function: ease-out-cubic;
+    transition-duration: 1s;
+}
+
+.research-window:disabled {
+    opacity: 1;
+    bottom: -985px;
+    transition-duration: 1s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.research-window:enabled {
+    bottom: 0;
+    transition-duration: 1s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.research-window .close-button {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    background-color: rgb(255, 212, 42);
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-left-color: rgb(255, 193, 0);
+    border-right-color: rgb(255, 193, 0);
+    border-top-color: rgb(255, 193, 0);
+    border-bottom-color: rgb(255, 193, 0);
+    width: 50px;
+    height: 50px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    -unity-font-definition: url("project://database/Assets/Fonts/FliegeMono-Regular.otf?fileID=12800000&guid=cb97a6c75a5100e43bfb40576fbec05b&type=3#FliegeMono-Regular");
+    font-size: 40px;
+    -unity-font-style: normal;
+}

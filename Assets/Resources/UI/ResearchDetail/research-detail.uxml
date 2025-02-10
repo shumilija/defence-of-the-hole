@@ -1,0 +1,11 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/UI/ResearchDetail/styles.uss?fileID=7433441132597879392&amp;guid=debe47827cc88ce4ca8da9038ab8b1fc&amp;type=3#styles" />
+    <engine:Image name="Preview" class="preview" />
+    <engine:VisualElement name="Gap" class="gap" />
+    <DefenceOfTheHole.UI.ResearchWindow.ResearchLevelBox name="LevelBox" width-of-gaps-in-pixels="10" size-of-icons-in-pixels="50" style="justify-content: center;" />
+    <engine:VisualElement name="Gap" class="gap" />
+    <engine:Label name="Title" class="title" />
+    <engine:Label name="Description" class="description" />
+    <engine:VisualElement name="Gap" class="gap" />
+    <engine:Button text="Исследовать" name="ExamineButton" class="button" />
+</engine:UXML>

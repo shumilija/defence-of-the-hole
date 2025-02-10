@@ -1,0 +1,9 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/UI/ResearchTree/styles.uss?fileID=7433441132597879392&amp;guid=e2603f74e13ab1e4ebfa4670cc634b65&amp;type=3#styles" />
+    <engine:Image name="Preview" class="preview" />
+    <engine:VisualElement name="Gap" class="gap" />
+    <engine:VisualElement name="InfoBox" class="info-box">
+        <engine:Label name="Title" class="title" />
+        <DefenceOfTheHole.UI.ResearchWindow.ResearchLevelBox size-of-icons-in-pixels="40" name="LevelBox" style="justify-content: flex-end;" />
+    </engine:VisualElement>
+</engine:UXML>

@@ -2,15 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DefenceOfTheHole.UI
+namespace DefenceOfTheHole.UI.ResearchWindow
 {
     /// <summary>
     /// Поле, отражающее уровень исследования.
     /// </summary>
     [UxmlElement]
-    public partial class LevelBox : VisualElement
+    public partial class ResearchLevelBox : VisualElement
     {
-        private const string _UssClassName = "level-box";
+        private const string _UssClassName = "research-level-box";
+        private const string _ResourcePath = "UI/ResearchLevelBox/research-level-box";
         private const int _MaxLevel = 3;
 
         private readonly List<VisualElement> _icons;
@@ -75,11 +76,11 @@ namespace DefenceOfTheHole.UI
             }
         }
 
-        public LevelBox()
+        public ResearchLevelBox()
         {
             AddToClassList(_UssClassName);
 
-            var uxml = Resources.Load<VisualTreeAsset>("UI/LevelBox/level-box");
+            var uxml = Resources.Load<VisualTreeAsset>(_ResourcePath);
             uxml.CloneTree(this);
 
             _icons = this
