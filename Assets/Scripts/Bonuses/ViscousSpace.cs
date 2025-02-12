@@ -3,23 +3,19 @@ using UnityEngine;
 
 namespace DefenceOfTheHole.Bonuses
 {
-    /// <summary>
-    /// Скрипт бонуса "Вязкая среда".
-    /// <para>Понижает скорость движения врагов в <see cref="_modifier"/> раз.</para>
-    /// </summary>
     public class ViscousSpace : MonoBehaviour, IBonus
     {
         [SerializeField]
-        private float _modifier;
+        private float _enemyTimeModifier;
 
         public void Activate()
         {
-            EnemyTime.Modifier /= _modifier;
+            EnemyTime.Modifier = _enemyTimeModifier;
         }
 
         public void Disactivate()
         {
-            EnemyTime.Modifier *= _modifier;
+            EnemyTime.Modifier = 1;
         }
     }
 }
