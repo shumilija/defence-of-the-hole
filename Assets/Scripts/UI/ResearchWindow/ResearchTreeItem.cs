@@ -1,3 +1,4 @@
+using DefenceOfTheHole.Data;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,7 +16,7 @@ namespace DefenceOfTheHole.UI.ResearchWindow
         private readonly Image _preview;
         private readonly Label _titleField;
         private readonly ResearchLevelBox _levelBox;
-        private readonly Research _research;
+        private readonly int _researchId;
 
         private ResearchDetail _detail;
 
@@ -31,43 +32,50 @@ namespace DefenceOfTheHole.UI.ResearchWindow
             _levelBox = this.Q<ResearchLevelBox>("LevelBox");
         }
 
-        public ResearchTreeItem(Research research)
-            : this()
+        public ResearchTreeItem(int researchId) : this()
         {
-            if (research == null)
-            {
-                return;
-            }
+            _researchId = researchId;
 
-            _research = research;
-
-            _preview.image = research.Preview;
-            _titleField.text = research.Title;
-            _levelBox.CurrentLevel = research.CurrentLevel;
-
-            research.LevelUp += (level, _) =>
-            {
-                _levelBox.CurrentLevel = level;
-            };
-
-            if (research.Parent != null)
-            {
-                SetEnabled(research.Parent.IsCurrentLevelMax);
-
-                research.Parent.LevelUp += (_, isLevelMax) =>
-                {
-                    SetEnabled(isLevelMax);
-                };
-            }
-
+            UserResearchesRepo.LevelIncreased += OnResearchLevelIncreased;
+            BindResearch();
             RegisterCallback<ClickEvent>(HandleClick);
         }
 
         private ResearchDetail Detail => _detail ??= GetDetail();
 
+        private void OnResearchLevelIncreased(UserResearch userResearch)
+        {
+            if (userResearch.ResearchId == _researchId)
+            {
+                _levelBox.CurrentLevel = userResearch.Level;
+            }
+
+            var research = ResearchesRepo.Get(_researchId);
+            if (research.Parent != null && research.Parent.Id == userResearch.ResearchId)
+            {
+                SetEnabled(userResearch.IsLevelMax);
+            }
+        }
+
+        private void BindResearch()
+        {
+            var research = ResearchesRepo.Get(_researchId);
+            _preview.image = research.Preview;
+            _titleField.text = research.Title;
+
+            var userResearch = UserResearchesRepo.Get(UsersRepo.CurrentUserId, _researchId);
+            _levelBox.CurrentLevel = userResearch.Level;
+
+            if (research.Parent != null)
+            {
+                var parentUserResearch = UserResearchesRepo.Get(UsersRepo.CurrentUserId, research.Parent.Id);
+                SetEnabled(parentUserResearch.IsLevelMax);
+            }
+        }
+
         private void HandleClick(ClickEvent e)
         {
-            Detail.RebindResearch(_research);
+            Detail.SetResearchId(_researchId);
         }
 
         private ResearchDetail GetDetail()

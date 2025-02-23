@@ -1,4 +1,4 @@
-using System.Linq;
+using DefenceOfTheHole.Data;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,8 +15,6 @@ namespace DefenceOfTheHole.UI.ResearchWindow
         private const string _LineUssClassName = "line";
         private const string _ResourcePath = "UI/ResearchTree/research-tree";
 
-        private Research[] _researches;
-        private string _pathToResearches;
         private int _sizeOfGapsInPixels;
 
         public ResearchTree()
@@ -25,26 +23,6 @@ namespace DefenceOfTheHole.UI.ResearchWindow
 
             var uxml = Resources.Load<VisualTreeAsset>(_ResourcePath);
             uxml.CloneTree(this);
-        }
-
-        /// <summary>
-        /// Путь до директории, где хранятся модели с исследованиями.
-        /// </summary>
-        [UxmlAttribute]
-        public string PathToResearches
-        {
-            get => _pathToResearches;
-            set
-            {
-                _pathToResearches = value;
-
-                if (!string.IsNullOrEmpty(_pathToResearches))
-                {
-                    _researches = Resources.LoadAll<Research>(_pathToResearches);
-
-                    Redraw();
-                }
-            }
         }
 
         /// <summary>
@@ -66,14 +44,12 @@ namespace DefenceOfTheHole.UI.ResearchWindow
         {
             Clear();
 
-            if (_researches.Length == 0)
+            var rootResearches = ResearchesRepo.GetRoot();
+            if (rootResearches.Length == 0)
             {
                 return;
             }
 
-            var rootResearches = _researches
-                .Where(r => r.Parent == null)
-                .ToArray();
             AddBranchTo(this, rootResearches);
         }
 
@@ -105,11 +81,9 @@ namespace DefenceOfTheHole.UI.ResearchWindow
 
         private void AddItemTo(VisualElement root, Research research)
         {
-            root.Add(new ResearchTreeItem(research));
+            root.Add(new ResearchTreeItem(research.Id));
 
-            var children = _researches
-                .Where(r => r.Parent == research)
-                .ToArray();
+            var children = ResearchesRepo.GetChildren(research.Id);
 
             if (children.Length > 0)
             {

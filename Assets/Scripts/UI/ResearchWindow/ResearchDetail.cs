@@ -1,11 +1,9 @@
+using DefenceOfTheHole.Data;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace DefenceOfTheHole.UI.ResearchWindow
 {
-    /// <summary>
-    /// Компонент для отображения детальной информации об исследовании.
-    /// </summary>
     [UxmlElement]
     public partial class ResearchDetail : VisualElement
     {
@@ -18,7 +16,7 @@ namespace DefenceOfTheHole.UI.ResearchWindow
         private readonly Label _descriptionField;
         private readonly Button _examineButton;
 
-        private Research _activeResearch;
+        private int _activeResearchId;
 
         public ResearchDetail()
         {
@@ -35,57 +33,43 @@ namespace DefenceOfTheHole.UI.ResearchWindow
 
             _examineButton.RegisterCallback<ClickEvent>(HandleExamineButtonClick);
 
+            UserResearchesRepo.LevelIncreased += OnResearchLevelIncreased;
+
             SetEnabled(false);
         }
 
-        /// <summary>
-        /// Перебиндить модель исследования.
-        /// </summary>
-        /// <param name="newResearch">Новая модель исследования.</param>
-        public void RebindResearch(Research newResearch)
+        public void SetResearchId(int researchId)
         {
-            ClearBinding();
-            SetEnabled(newResearch != null);
-            BindResearch(newResearch);
+            _activeResearchId = researchId;
 
-            _activeResearch = newResearch;
+            SetEnabled(true);
+            BindResearch();
         }
 
-        private void ClearBinding()
+        private void OnResearchLevelIncreased(UserResearch userResearch)
         {
-            if (_activeResearch != null)
+            if (userResearch.ResearchId == _activeResearchId)
             {
-                _activeResearch.LevelUp -= HandleLevelUp;
+                _levelBox.CurrentLevel = userResearch.Level;
+                _examineButton.SetEnabled(!userResearch.IsLevelMax);
             }
         }
 
-        private void BindResearch(Research newResearch)
+        private void BindResearch()
         {
-            if (newResearch == null)
-            {
-                Debug.LogWarning("Произведена попытка забиндить null вместо корректной модели исследования.");
+            var research = ResearchesRepo.Get(_activeResearchId);
+            _preview.image = research.Preview;
+            _titleField.text = research.Title;
+            _descriptionField.text = research.Description;
 
-                return;
-            }
-
-            _preview.image = newResearch.Preview;
-            _levelBox.CurrentLevel = newResearch.CurrentLevel;
-            _titleField.text = newResearch.Title;
-            _descriptionField.text = newResearch.Description;
-            _examineButton.SetEnabled(!newResearch.IsCurrentLevelMax);
-
-            newResearch.LevelUp += HandleLevelUp;
+            var userResearch = UserResearchesRepo.Get(UsersRepo.CurrentUserId, _activeResearchId);
+            _levelBox.CurrentLevel = userResearch.Level;
+            _examineButton.SetEnabled(!userResearch.IsLevelMax);
         }
 
         private void HandleExamineButtonClick(ClickEvent e)
         {
-            _activeResearch.TryIncreaseLevel(1);
-        }
-
-        private void HandleLevelUp(int level, bool isLevelMax)
-        {
-            _levelBox.CurrentLevel = level;
-            _examineButton.SetEnabled(!isLevelMax);
+            UserResearchesRepo.IncreaseLevel(UsersRepo.CurrentUserId, _activeResearchId, 1);
         }
     }
 }
